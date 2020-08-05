@@ -39,8 +39,7 @@ class DatabaseHelper {
     String path = directory.path + 'notes.db';
 
     // Open/create the database at a given path
-    var notesDatabase =
-        await openDatabase(path, version: 1, onCreate: _createDb);
+    var notesDatabase = await openDatabase(path, version: 1, onCreate: _createDb);
     return notesDatabase;
   }
 

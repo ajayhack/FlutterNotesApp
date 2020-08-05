@@ -30,7 +30,7 @@ class NoteDetailState extends State<NoteDetail> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = Theme.of(context).textTheme.title;
+    TextStyle textStyle = Theme.of(context).textTheme.headline6;
 
     titleController.text = note.title;
     descriptionController.text = note.description;
@@ -118,10 +118,10 @@ class NoteDetailState extends State<NoteDetail> {
                     children: <Widget>[
                       Expanded(
                         child: RaisedButton(
-                          color: Theme.of(context).primaryColorDark,
-                          textColor: Theme.of(context).primaryColorLight,
+                          color: Colors.green,
+                          textColor: Colors.white,
                           child: Text(
-                            'Save',
+                            'Save Note',
                             textScaleFactor: 1.5,
                           ),
                           onPressed: () {
@@ -137,10 +137,10 @@ class NoteDetailState extends State<NoteDetail> {
                       ),
                       Expanded(
                         child: RaisedButton(
-                          color: Theme.of(context).primaryColorDark,
-                          textColor: Theme.of(context).primaryColorLight,
+                          color: Colors.red,
+                          textColor: Colors.white,
                           child: Text(
-                            'Delete',
+                            'Clear Note',
                             textScaleFactor: 1.5,
                           ),
                           onPressed: () {

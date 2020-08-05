@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:demo_flutter_app/models/note.dart';
 import 'package:demo_flutter_app/utils/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
-
 import 'note_detail.dart';
 
 class NoteList extends StatefulWidget {
@@ -18,6 +16,7 @@ class NoteListState extends State<NoteList> {
   DatabaseHelper databaseHelper = DatabaseHelper();
   List<Note> noteList;
   int count = 0;
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +31,54 @@ class NoteListState extends State<NoteList> {
       ),
       body: getNoteListView(),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
         onPressed: () {
           debugPrint('FAB clicked');
           navigateToDetail(Note('', '', 2), 'Add Note');
         },
         tooltip: 'Add Note',
-        child: Icon(Icons.add),
+        child: Icon(Icons.add , color: Colors.white,),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            title: Text('Business'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            title: Text('School'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: onBottomNavigationTapped,
       ),
     );
   }
 
+  void onBottomNavigationTapped(int index) {
+    String msg = "";
+    setState(() {
+      //_selectedIndex = index;
+      if(_selectedIndex == 0) {
+        msg = "Home Clicked!!";
+      }else if(_selectedIndex == 1){
+        msg = "Products Clicked!!";
+      }else{
+        msg = "Cart Clicked!!";
+      }
+      _showSnackBar(context, msg);
+    });
+  }
+
   ListView getNoteListView() {
-    TextStyle titleStyle = Theme.of(context).textTheme.subhead;
+    TextStyle titleStyle = Theme.of(context).textTheme.subtitle1;
 
     return ListView.builder(
       itemCount: count,
