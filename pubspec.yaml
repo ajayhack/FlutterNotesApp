@@ -42,6 +42,15 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  # The Following adds the Images:-
+  assets:
+    - assets/images/daily_essentials_images/
+    - assets/images/electronics_images/
+    - assets/images/health_fitness_images/
+    - assets/images/lifestyle_images/
+    - assets/images/medicine_images/
+    - assets/images/mens_clothing_images/
+    - assets/images/womens_clothing_images/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

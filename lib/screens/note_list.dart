@@ -1,8 +1,11 @@
 import 'dart:async';
+
+import 'package:demo_flutter_app/models/bannerModal.dart';
 import 'package:demo_flutter_app/models/note.dart';
 import 'package:demo_flutter_app/utils/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
+
 import 'note_detail.dart';
 
 class NoteList extends StatefulWidget {
@@ -15,6 +18,8 @@ class NoteList extends StatefulWidget {
 class NoteListState extends State<NoteList> {
   DatabaseHelper databaseHelper = DatabaseHelper();
   List<Note> noteList;
+  List<BannerModal> bannerImageList = List<BannerModal>();
+
   int count = 0;
   int _selectedIndex = 0;
 
@@ -22,24 +27,58 @@ class NoteListState extends State<NoteList> {
   Widget build(BuildContext context) {
     if (noteList == null) {
       noteList = List<Note>();
+      bannerImageList.add(BannerModal(
+          'assets/images/daily_essentials_images/dailyBannerOne.jpg', 1));
+      bannerImageList.add(BannerModal(
+          'assets/images/daily_essentials_images/dailyBannerTwo.png', 2));
+      bannerImageList.add(BannerModal(
+          'assets/images/daily_essentials_images/dailyBannerThree.jpg', 3));
+      bannerImageList.add(BannerModal(
+          'assets/images/daily_essentials_images/dailyBannerFour.jpg', 4));
+      bannerImageList.add(BannerModal(
+          'assets/images/electronics_images/electronicsBannerOne.jpg', 5));
+      bannerImageList.add(BannerModal(
+          'assets/images/electronics_images/electronicsBannerTwo.jpg', 6));
+      bannerImageList.add(BannerModal(
+          'assets/images/health_fitness_images/healthBannerOne.jpg', 7));
+      bannerImageList.add(BannerModal(
+          'assets/images/health_fitness_images/healthBannerTwo.jpg', 8));
+      bannerImageList.add(BannerModal(
+          'assets/images/health_fitness_images/healthBannerThree.jpg', 9));
+      bannerImageList.add(BannerModal(
+          'assets/images/health_fitness_images/healthBannerFour.jpg', 10));
+      bannerImageList.add(BannerModal(
+          'assets/images/lifestyle_images/lifestyleBannerOne.png', 11));
+      bannerImageList.add(BannerModal(
+          'assets/images/lifestyle_images/lifestyleBannerTwo.png', 12));
+      bannerImageList.add(BannerModal(
+          'assets/images/medicine_images/medicineBannerOne.jpg', 13));
+      bannerImageList.add(BannerModal(
+          'assets/images/medicine_images/medicineBannerTwo.jpg', 14));
+      bannerImageList.add(BannerModal(
+          'assets/images/mens_clothing_images/menClothingBannerOne.jpg', 15));
+      bannerImageList.add(BannerModal(
+          'assets/images/mens_clothing_images/menClothingBannerTwo.jpg', 16));
+      bannerImageList.add(BannerModal(
+          'assets/images/mens_clothing_images/menClothingBannerThree.jpg', 17));
+      bannerImageList.add(BannerModal(
+          'assets/images/womens_clothing_images/womenClothingBannerThree.jpg',
+          18));
+      bannerImageList.add(BannerModal(
+          'assets/images/womens_clothing_images/womenClothingBannerThree.png',
+          19));
+      bannerImageList.add(BannerModal(
+          'assets/images/womens_clothing_images/womenClothingBannerThree.jpg',
+          20));
       updateListView();
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notes'),
+        backgroundColor: Colors.green,
+        title: Text('Indian E-commerce Shop'),
       ),
       body: getNoteListView(),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        onPressed: () {
-          debugPrint('FAB clicked');
-          navigateToDetail(Note('', '', 2), 'Add Note');
-        },
-        tooltip: 'Add Note',
-        child: Icon(Icons.add , color: Colors.white,),
-      ),
-
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -47,12 +86,12 @@ class NoteListState extends State<NoteList> {
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
+            icon: Icon(Icons.shopping_basket),
+            title: Text('Products'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('School'),
+            icon: Icon(Icons.shopping_cart),
+            title: Text('Cart'),
           ),
         ],
         currentIndex: _selectedIndex,
@@ -62,54 +101,65 @@ class NoteListState extends State<NoteList> {
     );
   }
 
-  void onBottomNavigationTapped(int index) {
+  onBottomNavigationTapped(int index) {
     String msg = "";
     setState(() {
       //_selectedIndex = index;
-      if(_selectedIndex == 0) {
+      if (index == 0) {
         msg = "Home Clicked!!";
-      }else if(_selectedIndex == 1){
+      } else if (index == 1) {
         msg = "Products Clicked!!";
-      }else{
+      } else {
         msg = "Cart Clicked!!";
       }
-      _showSnackBar(context, msg);
+      _showAlertDialog("Alert", msg);
     });
+  }
+
+  void _showAlertDialog(String title, String message) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pop();
+      },
+    );
+
+    AlertDialog alertDialog = AlertDialog(
+      title: Text(title),
+      content: Text(message),
+      actions: [
+        okButton,
+      ],
+    );
+
+    //ShowDialog method to Show Dialog on Screen with Ok Button in it:-
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return WillPopScope(
+            // ignore: missing_return
+            onWillPop: () {},
+            child: alertDialog);
+      },
+    );
   }
 
   ListView getNoteListView() {
     TextStyle titleStyle = Theme.of(context).textTheme.subtitle1;
 
     return ListView.builder(
-      itemCount: count,
+      itemCount: bannerImageList.length,
       itemBuilder: (BuildContext context, int position) {
         return Card(
           color: Colors.white,
           elevation: 2.0,
-          child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor:
-                  getPriorityColor(this.noteList[position].priority),
-              child: getPriorityIcon(this.noteList[position].priority),
-            ),
-            title: Text(
-              this.noteList[position].title,
-              style: titleStyle,
-            ),
-            subtitle: Text(this.noteList[position].date),
-            trailing: GestureDetector(
-              child: Icon(
-                Icons.delete,
-                color: Colors.grey,
-              ),
-              onTap: () {
-                _delete(context, noteList[position]);
-              },
-            ),
-            onTap: () {
-              debugPrint("ListTile Tapped");
-              navigateToDetail(this.noteList[position], 'Edit Note');
-            },
+          child: new Image(
+            image: new AssetImage(bannerImageList[position].bannerImage),
+            fit: BoxFit.contain,
+            alignment: Alignment.center,
           ),
         );
       },
