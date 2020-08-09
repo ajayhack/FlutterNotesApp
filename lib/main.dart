@@ -1,4 +1,4 @@
-import 'package:demo_flutter_app/screens/note_list.dart';
+import 'package:demo_flutter_app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'NoteKeeper',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home: NoteList(),
+      home: DashboardScreen(),
     );
   }
 }
