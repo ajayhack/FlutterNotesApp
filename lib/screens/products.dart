@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dashboard.dart';
+
 class ProductScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -20,7 +22,7 @@ class ProductsExpandedList extends State<ProductScreen> {
   }
 
   getProductExpandedList() {
-    return Stack(
+    return Column(
       children: <Widget>[
         Padding(
           padding: EdgeInsets.all(8.0),
@@ -32,15 +34,57 @@ class ProductsExpandedList extends State<ProductScreen> {
               trailing: Icon(Icons.add),
               backgroundColor: Colors.white,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      'Dairy Fresh',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(fontSize: 14.0),
-                    ),
-                  ],
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: RaisedButton(
+                          onPressed: navigateToDetailScreen,
+                          textColor: Colors.white,
+                          child: Text(
+                            'Dairy Fresh',
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.normal,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Daily Grocery',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.normal),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Fresh Vegetables',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.normal),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Fresh Fruits',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14.0,
+                              fontStyle: FontStyle.normal),
+                        ),
+                      ),
+                    ],
                 ),
+                )
               ],
             ),
           ),
@@ -55,14 +99,18 @@ class ProductsExpandedList extends State<ProductScreen> {
               trailing: Icon(Icons.add),
               backgroundColor: Colors.white,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      'Dairy Fresh',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(fontSize: 14.0),
-                    ),
-                  ],
+                Padding(padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Dairy Fresh',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(fontSize: 14.0,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -78,14 +126,18 @@ class ProductsExpandedList extends State<ProductScreen> {
               trailing: Icon(Icons.add),
               backgroundColor: Colors.white,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      'Dairy Fresh',
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(fontSize: 14.0),
-                    ),
-                  ],
+                Padding(padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Dairy Fresh',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(fontSize: 14.0,
+                            fontStyle: FontStyle.normal,
+                            color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -93,5 +145,10 @@ class ProductsExpandedList extends State<ProductScreen> {
         ),
       ],
     );
+  }
+
+  navigateToDetailScreen() {
+    Navigator.pop(
+      context, MaterialPageRoute(builder: (context) => DashboardScreen()),);
   }
 }

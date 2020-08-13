@@ -47,14 +47,21 @@ class DashboardScreenState extends State<DashboardScreen> {
     setState(() {
       //_selectedIndex = index;
       if (index == 0) {
-        msg = "Home Clicked!!";
       } else if (index == 1) {
-        msg = "Products Clicked!!";
+        navigateScreen(ProductScreen());
       } else {
         msg = "Cart Clicked!!";
       }
-      _showAlertDialog("Alert", msg);
+      //_showAlertDialog("Alert", msg);
     });
+  }
+
+  //Below method is used to handle navigate screen:-
+  navigateScreen(Widget screen) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => screen),
+    );
   }
 
   void _showAlertDialog(String title, String message) {
