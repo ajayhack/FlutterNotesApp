@@ -1,5 +1,5 @@
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:demo_flutter_app/screens/products.dart';
+import 'package:demo_flutter_app/screens/productCategoryScreen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -48,7 +48,7 @@ class DashboardScreenState extends State<DashboardScreen> {
       //_selectedIndex = index;
       if (index == 0) {
       } else if (index == 1) {
-        navigateScreen(ProductScreen());
+        navigateScreen(ProductCategoryScreen());
       } else {
         msg = "Cart Clicked!!";
       }
@@ -101,288 +101,286 @@ class DashboardScreenState extends State<DashboardScreen> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 1);
-            },
-            child: SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 2.0,
-                  child: new Stack(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
-                        child: Text(
-                          'Daily Essential Products',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Carousel(
-                        images: [
-                          Image.asset(
-                              'assets/images/daily_essentials_images/dailyBannerOne.jpg'),
-                          Image.asset(
-                              'assets/images/daily_essentials_images/dailyBannerTwo.png'),
-                          Image.asset(
-                              'assets/images/daily_essentials_images/dailyBannerThree.jpg'),
-                          Image.asset(
-                              'assets/images/daily_essentials_images/dailyBannerFour.jpg')
-                        ],
-                        borderRadius: false,
-                        boxFit: BoxFit.contain,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 2);
-            },
-            child: SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 2.0,
-                  child: new Stack(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
-                        child: Text(
-                          'Electronics Products',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Carousel(
-                        images: [
-                          Image.asset(
-                              'assets/images/electronics_images/electronicsBannerOne.jpg'),
-                          Image.asset(
-                              'assets/images/electronics_images/electronicsBannerTwo.jpg')
-                        ],
-                        borderRadius: false,
-                        boxFit: BoxFit.contain,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 3);
-            },
-            child: SizedBox(
-              height: 220,
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 2.0,
-                  child: new Stack(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
-                        child: Text(
-                          'Health & Fitness Products',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Carousel(
-                        images: [
-                          Image.asset(
-                              'assets/images/health_fitness_images/healthBannerOne.jpg'),
-                          Image.asset(
-                              'assets/images/health_fitness_images/healthBannerTwo.jpg'),
-                          Image.asset(
-                              'assets/images/health_fitness_images/healthBannerThree.jpg'),
-                          Image.asset(
-                              'assets/images/health_fitness_images/healthBannerFour.jpg')
-                        ],
-                        borderRadius: false,
-                        boxFit: BoxFit.contain,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 4);
-            },
-            child: SizedBox(
-              height: 200,
-              width: double.infinity,
+          SizedBox(
+            height: 200,
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
               child: Card(
                 color: Colors.white,
                 elevation: 2.0,
                 child: new Stack(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
-                      child: Text(
-                        'LifeStyle Products',
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
-                      ),
-                    ),
                     Carousel(
                       images: [
                         Image.asset(
-                            'assets/images/lifestyle_images/lifestyleBannerOne.png'),
+                            'assets/images/daily_essentials_images/dailyBannerOne.jpg'),
                         Image.asset(
-                            'assets/images/lifestyle_images/lifestyleBannerTwo.png')
+                            'assets/images/daily_essentials_images/dailyBannerTwo.png'),
+                        Image.asset(
+                            'assets/images/daily_essentials_images/dailyBannerThree.jpg'),
+                        Image.asset(
+                            'assets/images/daily_essentials_images/dailyBannerFour.jpg')
                       ],
                       borderRadius: false,
                       boxFit: BoxFit.contain,
+                    ),
+                    Center(
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        color: Colors.black.withOpacity(0.5),
+                        onPressed: () {
+                          carouselOnClick(context, 'DE');
+                        },
+                        child: Text(
+                          'Daily Essential Products SHOP NOW',
+                          textDirection: TextDirection.ltr,
+                          style: TextStyle(
+                              fontSize: 14.0, fontStyle: FontStyle.normal),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 200,
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Card(
+                color: Colors.white,
+                elevation: 2.0,
+                child: new Stack(
+                  children: <Widget>[
+                    Carousel(
+                      images: [
+                        Image.asset(
+                            'assets/images/electronics_images/electronicsBannerOne.jpg'),
+                        Image.asset(
+                            'assets/images/electronics_images/electronicsBannerTwo.jpg')
+                      ],
+                      borderRadius: false,
+                      boxFit: BoxFit.contain,
+                    ),
+                    Center(
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        color: Colors.black.withOpacity(0.5),
+                        onPressed: () {
+                          carouselOnClick(context, 'EE');
+                        },
+                        child: Text(
+                          'Electronic Products SHOP NOW',
+                          textDirection: TextDirection.ltr,
+                          style: TextStyle(
+                              fontSize: 14.0, fontStyle: FontStyle.normal),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 5);
-            },
-            child: SizedBox(
-              height: 210,
-              width: double.infinity,
+          SizedBox(
+            height: 220,
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
               child: Card(
                 color: Colors.white,
                 elevation: 2.0,
                 child: new Stack(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
-                      child: Text(
-                        'Medicine Products',
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
-                      ),
-                    ),
                     Carousel(
                       images: [
                         Image.asset(
-                            'assets/images/medicine_images/medicineBannerOne.jpg'),
+                            'assets/images/health_fitness_images/healthBannerOne.jpg'),
                         Image.asset(
-                            'assets/images/medicine_images/medicineBannerTwo.jpg')
+                            'assets/images/health_fitness_images/healthBannerTwo.jpg'),
+                        Image.asset(
+                            'assets/images/health_fitness_images/healthBannerThree.jpg'),
+                        Image.asset(
+                            'assets/images/health_fitness_images/healthBannerFour.jpg')
                       ],
                       borderRadius: false,
                       boxFit: BoxFit.contain,
                     ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 6);
-            },
-            child: SizedBox(
-              height: 230,
-              width: double.infinity,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 2.0,
-                  child: new Stack(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
+                    Center(
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        color: Colors.black.withOpacity(0.5),
+                        onPressed: () {
+                          carouselOnClick(context, 'HF');
+                        },
                         child: Text(
-                          'Men Clothing',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
+                          'Health & Fitness Products SHOP NOW',
+                          textDirection: TextDirection.ltr,
                           style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey),
+                              fontSize: 14.0, fontStyle: FontStyle.normal),
                         ),
                       ),
-                      Carousel(
-                        images: [
-                          Image.asset(
-                              'assets/images/mens_clothing_images/menClothingBannerOne.jpg'),
-                          Image.asset(
-                              'assets/images/mens_clothing_images/menClothingBannerTwo.jpg'),
-                          Image.asset(
-                              'assets/images/mens_clothing_images/menClothingBannerThree.jpg')
-                        ],
-                        borderRadius: false,
-                        boxFit: BoxFit.contain,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
-          InkWell(
-            onTap: () {
-              carouselOnClick(context, 7);
-            },
-            child: SizedBox(
-              height: 220,
-              width: double.infinity,
+          SizedBox(
+            height: 200,
+            width: double.infinity,
+            child: Card(
+              color: Colors.white,
+              elevation: 2.0,
+              child: new Stack(
+                children: <Widget>[
+                  Carousel(
+                    images: [
+                      Image.asset(
+                          'assets/images/lifestyle_images/lifestyleBannerOne.png'),
+                      Image.asset(
+                          'assets/images/lifestyle_images/lifestyleBannerTwo.png')
+                    ],
+                    borderRadius: false,
+                    boxFit: BoxFit.contain,
+                  ),
+                  Center(
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.black.withOpacity(0.5),
+                      onPressed: () {
+                        carouselOnClick(context, 'LS');
+                      },
+                      child: Text(
+                        'LifeStyle Products SHOP NOW',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 14.0, fontStyle: FontStyle.normal),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 210,
+            width: double.infinity,
+            child: Card(
+              color: Colors.white,
+              elevation: 2.0,
+              child: new Stack(
+                children: <Widget>[
+                  Carousel(
+                    images: [
+                      Image.asset(
+                          'assets/images/medicine_images/medicineBannerOne.jpg'),
+                      Image.asset(
+                          'assets/images/medicine_images/medicineBannerTwo.jpg')
+                    ],
+                    borderRadius: false,
+                    boxFit: BoxFit.contain,
+                  ),
+                  Center(
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.black.withOpacity(0.5),
+                      onPressed: () {
+                        carouselOnClick(context, 'ME');
+                      },
+                      child: Text(
+                        'Medicine Products SHOP NOW',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 14.0, fontStyle: FontStyle.normal),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 230,
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
               child: Card(
                 color: Colors.white,
                 elevation: 2.0,
                 child: new Stack(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(16.0, 2.0, 0.0, 16.0),
-                      child: Text(
-                        'Women Clothing',
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
-                      ),
-                    ),
                     Carousel(
                       images: [
                         Image.asset(
-                            'assets/images/womens_clothing_images/womenClothingBannerOne.jpeg'),
+                            'assets/images/mens_clothing_images/menClothingBannerOne.jpg'),
                         Image.asset(
-                            'assets/images/womens_clothing_images/womenClothingBannerTwo.jpg'),
+                            'assets/images/mens_clothing_images/menClothingBannerTwo.jpg'),
                         Image.asset(
-                            'assets/images/womens_clothing_images/womenClothingBannerThree.png')
+                            'assets/images/mens_clothing_images/menClothingBannerThree.jpg')
                       ],
                       borderRadius: false,
                       boxFit: BoxFit.contain,
                     ),
+                    Center(
+                      child: RaisedButton(
+                        textColor: Colors.white,
+                        color: Colors.black.withOpacity(0.5),
+                        onPressed: () {
+                          carouselOnClick(context, 'MC');
+                        },
+                        child: Text(
+                          'Men Clothing SHOP NOW',
+                          textDirection: TextDirection.ltr,
+                          style: TextStyle(
+                              fontSize: 14.0, fontStyle: FontStyle.normal),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 220,
+            width: double.infinity,
+            child: Card(
+              color: Colors.white,
+              elevation: 2.0,
+              child: new Stack(
+                children: <Widget>[
+                  Carousel(
+                    images: [
+                      Image.asset(
+                          'assets/images/womens_clothing_images/womenClothingBannerOne.jpeg'),
+                      Image.asset(
+                          'assets/images/womens_clothing_images/womenClothingBannerTwo.jpg'),
+                      Image.asset(
+                          'assets/images/womens_clothing_images/womenClothingBannerThree.png')
+                    ],
+                    borderRadius: false,
+                    boxFit: BoxFit.contain,
+                  ),
+                  Center(
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.black.withOpacity(0.5),
+                      onPressed: () {
+                        carouselOnClick(context, 'WC');
+                      },
+                      child: Text(
+                        'Women Clothing SHOP NOW',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 14.0, fontStyle: FontStyle.normal),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -391,54 +389,13 @@ class DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  carouselOnClick(BuildContext context, int carouselType) {
-    String message = "";
-    switch (carouselType) {
-      case 1:
-        {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => ProductScreen()),
-          );
-        }
-        break;
-      case 2:
-        {
-          message = "Electronics Carousel Clicked";
-          _showAlertDialog(message, message);
-        }
-        break;
-      case 3:
-        {
-          message = "Health and Fitness Carousel Clicked";
-          _showAlertDialog(message, message);
-        }
-        break;
-      case 4:
-        {
-          message = "LifeStyle Carousel Clicked";
-          _showAlertDialog(message, message);
-        }
-        break;
-      case 5:
-        {
-          message = "Medicine Carousel Clicked";
-          _showAlertDialog(message, message);
-        }
-        break;
-      case 6:
-        {
-          message = "Men Clothing Carousel Clicked";
-          _showAlertDialog(message, message);
-        }
-        break;
-      case 7:
-        {
-          message = "Women Clothing Carousel Clicked";
-          _showAlertDialog(message, message);
-        }
-        break;
-    }
+  carouselOnClick(BuildContext context, String categoryName) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) =>
+              ProductCategoryScreen(isExpanded: categoryName)),
+    );
   }
 
   void _showSnackBar(BuildContext context, String message) {
