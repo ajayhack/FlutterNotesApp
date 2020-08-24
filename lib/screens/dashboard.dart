@@ -48,7 +48,9 @@ class DashboardScreenState extends State<DashboardScreen> {
       //_selectedIndex = index;
       if (index == 0) {
       } else if (index == 1) {
-        navigateScreen(ProductCategoryScreen());
+        navigateScreen(ProductCategoryScreen(
+          isExpanded: null,
+        ));
       } else {
         msg = "Cart Clicked!!";
       }
