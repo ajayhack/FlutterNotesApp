@@ -102,63 +102,73 @@ class Products extends State<ProductList> {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              Image.asset(
-                  'assets/images/daily_essentials_images/dailyBannerOne.jpg'),
-              Text(
-                'S.No: ' + productDataList[index].productNumber,
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
-              Text(
-                'Title: ' + productDataList[index].productName,
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
-              Text(
-                'Mrp: ' + productDataList[index].productMRP,
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
-              Text(
-                'Discount: ' + productDataList[index].productDiscount,
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
-              Text(
-                'Price: ' + productDataList[index].productFinalPrice,
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
-              RaisedButton(
-                textColor: Colors.white,
-                color: Colors.orange,
-                onPressed: () {},
-                child: Text(
-                  'Add to Cart',
-                  textDirection: TextDirection.ltr,
-                  style: TextStyle(fontSize: 14.0, fontStyle: FontStyle.normal),
-                ),
-              ),
-              RaisedButton(
-                textColor: Colors.white,
+              Card(
                 color: Colors.green,
-                onPressed: () {},
-                child: Text(
-                  'Shop Now',
-                  textDirection: TextDirection.ltr,
-                  style: TextStyle(fontSize: 14.0, fontStyle: FontStyle.normal),
+                elevation: 2.0,
+                child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                        'assets/images/daily_essentials_images/dailyBannerOne.jpg'),
+                    Text(
+                      'S.No: ' + productDataList[index].productNumber,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      'Title: ' + productDataList[index].productName,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      'Mrp: ' + productDataList[index].productMRP,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      'Discount: ' + productDataList[index].productDiscount,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                    ),
+                    Text(
+                      'Price: ' + productDataList[index].productFinalPrice,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontStyle: FontStyle.normal,
+                          color: Colors.white),
+                    ),
+                    RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.orange,
+                      onPressed: () {},
+                      child: Text(
+                        'Add to Cart',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 14.0, fontStyle: FontStyle.normal),
+                      ),
+                    ),
+                    RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.green,
+                      onPressed: () {},
+                      child: Text(
+                        'Shop Now',
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 14.0, fontStyle: FontStyle.normal),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+              )
             ],
           ),
         );
